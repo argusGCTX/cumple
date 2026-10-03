@@ -88,13 +88,13 @@ img{
 
 .arriba     { grid-area: arriba; }
 .izquierda  { grid-area: izquierda; }
-.frase      { grid-area: frase; font-size: 22px;text-align: center;font-family: Georgia, 'Times New Roman', Times, serif; }
+.frase      { grid-area: frase; font-size: 15px;text-align: center;font-family: Georgia, 'Times New Roman', Times, serif; }
 .derecha    { grid-area: derecha; }
 .abajo      { grid-area: abajo; }
 
 .frase-con-fotos img {
-    width: 300px;
-    height: 300px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
     border-radius: 15px;
 }
