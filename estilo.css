@@ -1,113 +1,249 @@
-*{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: arial sans-serif;
-        }
-header{
-    color: rgb(0, 0, 0);
-    text-align:center;
-    }
-    .cora{
-    font-size:70px;
-    animation: mover 2s infinite alternate;
-    }
-    @keyframes mover {
-            from {
-                transform: translateY(-15px);
-            }
-        }
-    header h3{
-    font-size: 2.5rem;
-    font-family: 'Courier New', Courier, monospace;
-    margin-bottom: 10px;
-    }
-    header p{
-    font-size: 1.2rem;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    margin-bottom: 20px;
-    }
-body{
-    background-image:url("imagenes/tokitoxd.jpg");
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-    background-attachment: fixed;
-    margin:0;
-    min-height:100vh;
+/* CONFIGURACIÓN GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
-h2{
-    text-align:center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+
+html {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    position: relative;
+    isolation: isolate;
+    color: black;
+}
+
+/* FONDO FIJO */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background-image: url("imagenes/tokitoxd.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ENCABEZADO */
+header {
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+.cora {
+    font-size: 70px;
+    animation: mover 2s infinite alternate;
+}
+
+@keyframes mover {
+    from {
+        transform: translateY(-15px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+header h3 {
+    font-size: 2.5rem;
+    font-family: "Courier New", Courier, monospace;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+    font-family: Impact, Haettenschweiler,
+                 "Arial Narrow Bold", sans-serif;
+    margin-bottom: 20px;
+}
+
+/* TÍTULOS */
+h2 {
+    text-align: center;
+    font-family: Georgia, "Times New Roman", Times, serif;
     font-size: 32px;
     margin-bottom: 20px;
 }
-img{
-    border-radius:14%;
-    width: 300px;
+
+/* IMÁGENES GENERALES */
+img {
+    border-radius: 14%;
+    width: 250px;
+    max-width: 100%;
+    height: auto;
     display: block;
     margin: 20px auto;
 }
-.tarjeta{
-        background: rgba(255, 253, 240, 0.65);
-        width: 280px;
-        margin: 0 auto 20px;
-        padding: 30px;
-        border-radius: 25px;
-        box-shadow: 0 8px 20px rgba(160, 110, 0, 0, 0.25);
-        transition: 0.3s;
-        border: 3px solid #f80000;
-        }
-        .tarjeta span{
-            text-align: center;
-            display: block;
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-        .tarjeta h3{
-            text-align: center;
-            font-size: 26px;
-            margin-bottom: 10px;
-        }
-        .tarjeta p{
-            text-align: center;
-            font-size: 15px;
-            margin-bottom: 15px;
-        }
+
+/* TARJETAS */
+.tarjeta {
+    background: rgba(255, 253, 240, 0.65);
+    width: 280px;
+    max-width: calc(100% - 24px);
+    margin: 0 auto 20px;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 8px 20px rgba(160, 110, 0, 0.25);
+    transition: 0.3s;
+    border: 3px solid #f80000;
+}
+
+.tarjeta span {
+    text-align: center;
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.tarjeta h3 {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.tarjeta p {
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 15px;
+    overflow-wrap: break-word;
+}
+
+/* CUATRO IMÁGENES Y FRASE CENTRAL */
 .frase-con-fotos {
     display: grid;
+
     grid-template-areas:
         ". arriba ."
         "izquierda frase derecha"
         ". abajo .";
-    grid-template-columns: 1fr minmax(200px, 2fr) 1fr;
+
+    grid-template-columns: minmax(0, 1fr)
+                           minmax(0, 2fr)
+                           minmax(0, 1fr);
+
     align-items: center;
     justify-items: center;
-    gap: 15px;
+    gap: 8px;
+
+    width: 100%;
+    max-width: 700px;
+    padding: 0 8px;
     margin: 40px auto;
 }
 
-.arriba     { grid-area: arriba; }
-.izquierda  { grid-area: izquierda; }
-.frase      { grid-area: frase; font-size: 15px;text-align: center;font-family: Georgia, 'Times New Roman', Times, serif; }
-.derecha    { grid-area: derecha; }
-.abajo      { grid-area: abajo; }
+.arriba {
+    grid-area: arriba;
+}
 
+.izquierda {
+    grid-area: izquierda;
+}
+
+.frase {
+    grid-area: frase;
+
+    font-size: 15px;
+    text-align: center;
+    font-family: Georgia, "Times New Roman", Times, serif;
+
+    background: rgba(255, 253, 240, 0.65);
+    width: 100%;
+    max-width: 180px;
+    min-width: 0;
+
+    margin: 0 auto;
+    padding: 12px;
+
+    border-radius: 25px;
+    border: 3px solid #f80000;
+    box-shadow: 0 8px 20px rgba(160, 110, 0, 0.25);
+
+    overflow-wrap: anywhere;
+    transition: 0.3s;
+}
+
+.derecha {
+    grid-area: derecha;
+}
+
+.abajo {
+    grid-area: abajo;
+}
+
+/* IMÁGENES PEQUEÑAS */
 .frase-con-fotos img {
-    width: 100px;
-    height: 100px;
+    width: clamp(60px, 22vw, 100px);
+    height: clamp(60px, 22vw, 100px);
+    max-width: 100%;
+
     object-fit: cover;
     border-radius: 15px;
+    margin: 0;
 }
-footer{
-   padding: 70px 20px;
-    background: linear-gradient(45deg, #0213ff , #da0e0e);
+
+/* PIE DE PÁGINA */
+footer {
+    padding: 70px 20px;
+
+    background: linear-gradient(45deg, #0213ff, #da0e0e);
     color: white;
-    box-shadow: -10px 0 22px rgba(2, 19, 255, 0.75),
-                 10px 0 22px rgba(218, 14, 14, 0.75);
-    text-align:center;
+
+    box-shadow:
+        -10px 0 22px rgba(2, 19, 255, 0.75),
+         10px 0 22px rgba(218, 14, 14, 0.75);
+
+    text-align: center;
 }
-footer p{
-    font-family: 'Courier New', Courier, monospace;
+
+footer p {
+    font-family: "Courier New", Courier, monospace;
     font-size: 25px;
     margin-bottom: 10px;
+}
+
+/* AJUSTES PARA CELULARES */
+@media (max-width: 480px) {
+    header h3 {
+        font-size: 1.7rem;
+    }
+
+    header p {
+        font-size: 1rem;
+        padding: 0 12px;
+    }
+
+    .cora {
+        font-size: 45px;
+    }
+
+    h2 {
+        font-size: 25px;
+        padding: 0 10px;
+    }
+
+    .tarjeta {
+        padding: 20px;
+    }
+
+    .tarjeta h3 {
+        font-size: 22px;
+    }
+
+    .frase {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    footer p {
+        font-size: 20px;
+    }
+}
